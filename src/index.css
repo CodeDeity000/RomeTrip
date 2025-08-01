@@ -1,0 +1,129 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 28 35% 92%;
+    --foreground: 25 30% 15%;
+
+    --card: 30 20% 96%;
+    --card-foreground: 25 30% 15%;
+
+    --popover: 30 20% 96%;
+    --popover-foreground: 25 30% 15%;
+
+    --primary: 25 65% 45%;
+    --primary-foreground: 30 20% 96%;
+
+    --secondary: 28 25% 88%;
+    --secondary-foreground: 25 30% 15%;
+
+    --muted: 28 25% 88%;
+    --muted-foreground: 25 20% 40%;
+
+    --accent: 35 40% 70%;
+    --accent-foreground: 25 30% 15%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 30 20% 96%;
+
+    --border: 28 20% 82%;
+    --input: 28 20% 82%;
+    --ring: 25 65% 45%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 25 20% 8%;
+    --foreground: 28 15% 90%;
+
+    --card: 25 25% 12%;
+    --card-foreground: 28 15% 90%;
+
+    --popover: 25 25% 12%;
+    --popover-foreground: 28 15% 90%;
+
+    --primary: 35 60% 55%;
+    --primary-foreground: 25 20% 8%;
+
+    --secondary: 25 20% 18%;
+    --secondary-foreground: 28 15% 90%;
+
+    --muted: 25 20% 18%;
+    --muted-foreground: 28 10% 65%;
+
+    --accent: 35 40% 25%;
+    --accent-foreground: 28 15% 90%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 28 15% 90%;
+
+    --border: 25 15% 22%;
+    --input: 25 15% 22%;
+    --ring: 35 60% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 md:px-6 lg:px-8 mx-auto;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground rounded-full px-6 py-2.5 font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98];
+  }
+  
+  .section {
+    @apply py-12 md:py-16 lg:py-24;
+  }
+  
+  .glass-card {
+    @apply bg-white/70 dark:bg-black/30 backdrop-blur-lg border border-white/20 dark:border-white/10 rounded-xl shadow-lg;
+  }
+  
+  .wave-animation {
+    animation: wave 12s linear infinite;
+    animation-delay: -2s;
+    transform-origin: center bottom;
+  }
+  
+  .page-transition-enter {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  .page-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 400ms, transform 400ms;
+  }
+  
+  .page-transition-exit {
+    opacity: 1;
+  }
+  
+  .page-transition-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+}
