@@ -19,6 +19,8 @@ import diningRestaurant from "@/assets/dining-restaurant.jpg";
 import diningCoffee from "@/assets/dining-coffee.jpg";
 import servicesConcierge from "@/assets/services-concierge.jpg";
 import entertainmentLounge from "@/assets/entertainment-lounge.jpg";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import CustomCarousel from "@/components/ui/customCarousel";
 
 export default function Amenities() {
   const { t } = useLanguage();
@@ -265,9 +267,10 @@ export default function Amenities() {
                 {t.gallery.subtitle}
               </p>
             </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {[
+
+            {/* CustomCarousel Gallery */}
+            <CustomCarousel
+              items={[
                 { image: romanArchitecture1, title: "Ancient Roman Colosseum" },
                 { image: romanArchitecture2, title: "Majestic Roman Architecture" },
                 { image: romanArchitecture3, title: "Classical Roman Design" },
@@ -276,26 +279,9 @@ export default function Amenities() {
                 { image: romanArchitecture6, title: "Historic Roman Structure" },
                 { image: wellnessSpa, title: "Luxury Spa Experience" },
                 { image: diningRestaurant, title: "Fine Dining Restaurant" }
-              ].map((galleryItem, index) => (
-                <div 
-                  key={index} 
-                  className="group aspect-square rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl animate-fade-in"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <img 
-                    src={galleryItem.image}
-                    alt={galleryItem.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                    <p className="text-white text-sm font-medium text-center px-4">
-                      {galleryItem.title}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
+              ]}
+            />
+
             <div className="text-center mt-12">
               <Button asChild variant="outline" size="lg" className="hover-scale">
                 <Link to="/gallery">
